@@ -12,19 +12,29 @@ interface CartContextProps {
   setItems: React.Dispatch<React.SetStateAction<CartItemType[]>>;
 }
 
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 export const CartContext = createContext({} as CartContextProps);
+
+export const useCart = () => {
+  const context = useContext(CartContext);
+
+  if (!context) {
+    throw new Error('useCart must be used within a CartProvider');
+  }
+
+  return context;
+};
 
 export const CartProvider = ({ children }: CartProviderProps) => {
   const [items, setItems] = useState<CartItemType[]>([
     {
-      price: 100,
-      title: 'Shoes',
+      price: 10,
+      title: 'T-shirt',
     },
     {
-      price: 200,
-      title: 'Shirt',
+      price: 5,
+      title: 'Hat',
     },
   ]);
 
