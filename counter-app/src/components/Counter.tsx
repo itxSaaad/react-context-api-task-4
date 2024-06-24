@@ -10,13 +10,13 @@ export default function Counter() {
     <div className={styles.counter}>
       <button
         className={styles.buttonInc}
-        onClick={() => console.log('Increment')}
+        onClick={() => counterContext.setCount(counterContext.count + 1)}
       >
         Increment
       </button>
       <button
         className={styles.buttonDec}
-        onClick={() => console.log('Decrement')}
+        onClick={() => counterContext.setCount(counterContext.count - 1)}
       >
         Decrement
       </button>

@@ -12,9 +12,6 @@ function App() {
       <h1>Counter is {counterState.count}</h1>
 
       <Counter />
-      <Counter />
-      <Counter />
-      <Counter />
     </header>
   );
 }
